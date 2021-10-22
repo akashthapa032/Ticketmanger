@@ -2,11 +2,17 @@ package com.ticket.manger.service;
 
 import com.ticket.manger.dto.UserDto;
 import com.ticket.manger.dto.UserSubmitionDto;
+import com.ticket.manger.repository.UsersRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.Valid;
 import java.util.List;
 
 public class UsersServiceImpl implements UsersService{
+        @Autowired
+        private UsersRepository usersRepository;
+
+
 
 
     @Override
