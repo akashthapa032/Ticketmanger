@@ -19,6 +19,12 @@ public class UserSubmitionDto {
     @NotBlank
     @NotNull
     private String name;
+
+    @NotNull
+    @NotBlank
+    private String password;
+
+
     private List<RoleType> roles;
 
     public UserSubmitionDto() {
@@ -29,6 +35,15 @@ public class UserSubmitionDto {
         this.username = username;
         this.name = name;
         this.roles = roles;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {
