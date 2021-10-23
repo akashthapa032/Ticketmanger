@@ -25,6 +25,17 @@ public class Users {
     @Column(name="p_password", nullable = false)
     private String password;
 
+    @Column(name="enabled", nullable = false)
+    private Boolean enabled;
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public Users() {
     }
 
@@ -35,6 +46,7 @@ public class Users {
         this.createdDate = createdDate;
         this.lastUpdated = lastUpdated;
         this.password = password;
+        this.enabled = enabled;
     }
 
     public Long getId() {
