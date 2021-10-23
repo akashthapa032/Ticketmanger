@@ -10,13 +10,15 @@ import com.ticket.manger.repository.RoleRepository;
 import com.ticket.manger.repository.UsersRepository;
 import com.ticket.manger.repository.UsersRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import javax.management.relation.Role;
+
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class UsersServiceImpl implements UsersService{
         @Autowired
         private UsersRepository usersRepository;
@@ -28,15 +30,18 @@ public class UsersServiceImpl implements UsersService{
 
     @Override
     public List<UserDto> findAll() {
-
-        return usersRepository.findAll().stream().map(this::mapUser).collect(Collectors.toList());
+         return usersRepository.findAll().stream().map(this::mapUser).collect(Collectors.toList());
     }
     private UserDto mapUser( Users users){
-         
-        List<UsersRole> userRoles = usersRoleRepository.findAllByUsers(users);
+
+        List<UsersRole> usersRoles = usersRoleRepository.findAllByUsers(users);
+        List<RoleType> roles = usersRoles.stream().map(userRole -> userRole.getRole().getName()).collect(Collectors.toList());
+        return new UserDto(users.getId(),users.getUsername(),users.getName(),users.getEnabled(),roles);
+       /* List<UsersRole> userRoles = usersRoleRepository.findAllByUsers(users);
         List<RoleType> roles = userRoles.stream().map(userRole -> userRole.getRole().getName())
                 .collect(Collectors.toList());
-        return new UserDto(users.getId(), users.getUsername(), users.getName(), users.getEnabled(), roles);
+        return new UserDto(users.getId(), users.getUsername(), users.getName(), users.getEnabled(), roles);*/
+
     }
 
     @Override
