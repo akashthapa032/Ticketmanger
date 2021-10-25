@@ -1,7 +1,10 @@
 package com.ticket.manger.entity;
 
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 //make table name users in database
 @Entity(name="users")

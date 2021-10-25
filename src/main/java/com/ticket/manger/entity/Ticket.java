@@ -2,7 +2,7 @@ package com.ticket.manger.entity;
 
 
 import com.ticket.manger.enums.TicketType;
-import org.apache.catalina.User;
+
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,8 +16,8 @@ public class Ticket {
     @Column(name="ticket_subject",nullable = false)
     private String ticketSubject;
 
-    @Column(name="ticket-description")
-    private String ticketDescritpion;
+    @Column(name="ticket_description")
+    private String ticketDescription;
 
    @Enumerated (EnumType.STRING)
     @Column(name="ticket_type", nullable = false)
@@ -56,12 +56,12 @@ public class Ticket {
         this.ticketSubject = ticketSubject;
     }
 
-    public String getTicketDescritpion() {
-        return ticketDescritpion;
+    public String getTicketDescription() {
+        return ticketDescription;
     }
 
-    public void setTicketDescritpion(String ticketDescritpion) {
-        this.ticketDescritpion = ticketDescritpion;
+    public void setTicketDescription(String ticketDescription) {
+        this.ticketDescription = ticketDescription;
     }
 
     public TicketType getTicketType() {
