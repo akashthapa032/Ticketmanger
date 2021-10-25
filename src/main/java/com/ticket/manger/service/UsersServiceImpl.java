@@ -37,10 +37,6 @@ public class UsersServiceImpl implements UsersService{
         List<UsersRole> usersRoles = usersRoleRepository.findAllByUsers(users);
         List<RoleType> roles = usersRoles.stream().map(userRole -> userRole.getRole().getName()).collect(Collectors.toList());
         return new UserDto(users.getId(),users.getUsername(),users.getName(),users.getEnabled(),roles);
-       /* List<UsersRole> userRoles = usersRoleRepository.findAllByUsers(users);
-        List<RoleType> roles = userRoles.stream().map(userRole -> userRole.getRole().getName())
-                .collect(Collectors.toList());
-        return new UserDto(users.getId(), users.getUsername(), users.getName(), users.getEnabled(), roles);*/
 
     }
 

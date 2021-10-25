@@ -13,7 +13,6 @@ public class TicketSubmitionDto {
     @Size(max = 100)
     private String ticketSubject;
 
-    @NotBlank
     @NotNull
     private TicketType type;
 
